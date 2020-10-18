@@ -1,5 +1,9 @@
 ﻿  Application.cpp
-D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(176,21): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(203,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(205,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(136,24): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(159,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(182,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(184,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  VertexArray.cpp
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\VertexArray.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   opengl_basic.vcxproj -> D:\opengl\opengl_basic\opengl_basic\Debug\opengl_basic.exe
