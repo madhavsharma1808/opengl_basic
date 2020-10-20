@@ -7,6 +7,7 @@
 #include<sstream>
 #include "Render.h"
 #include "Vertexbuffer.h"
+#include "VertexBufferLayout.h"
 #include "IndexBuffer.h"
 #include "VertexArray.h"
 #include "Shader.h"
@@ -14,12 +15,13 @@
  
 int main()
 {
+   
     GLFWwindow* window;
 
     /* Initialize the library */
     if (!glfwInit())
         return -1;
-
+    
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -31,6 +33,8 @@ int main()
         glfwTerminate();
         return -1;
     }
+
+     
 
 
     /* Make the window's context current */
@@ -86,18 +90,16 @@ int main()
     shader.Unbind();
     float r = 0.0f;
     float inc = 0.05;
+    Renderer renderer;
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
-
-
-       GLCall(glClear(GL_COLOR_BUFFER_BIT));
+        renderer.Clear();
         //glClearBufferfv(GL_COLOR, 0, red);
        shader.Bind();
-       shader.SetSetUniform("u_Color", r, 0.3f, 0.8f, 1.0f);
-        va.Bind();
-        ib.Bind();
-        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+       shader.SetSetUniform("u_Color", r, 0.3f, 0.8f, 1.0f);  //Will change on adding materials
+       
+       renderer.Draw(va, ib, shader);
 
         if (r > 1.0f)
             inc = -0.05;
