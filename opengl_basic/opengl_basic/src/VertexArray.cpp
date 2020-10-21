@@ -23,7 +23,7 @@ void VertexArray::AddBuffer(const Vertexbuffer& vb, const VertexBufferLayout& la
 	{
 		const auto& element = elements[i];
 		GLCall(glEnableVertexAttribArray(i));
-		GLCall(glVertexAttribPointer(i, element.count, element.type, element.normalized, layout.GetStride(), (const void*)offset));
+		GLCall(glVertexAttribPointer(i, element.count, element.type, element.normalized, layout.GetStride(), (const void*)offset));  //elements.count is the components per generic vertex attribute and not the size in bytes
 		offset += element.count * VertexBufferElement::GetSizeOftype(element.count);
 	}
 }

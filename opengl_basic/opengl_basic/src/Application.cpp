@@ -11,6 +11,7 @@
 #include "IndexBuffer.h"
 #include "VertexArray.h"
 #include "Shader.h"
+#include "Texture.h"
 
  
 int main()
@@ -21,6 +22,8 @@ int main()
     /* Initialize the library */
     if (!glfwInit())
         return -1;
+    else
+        std::cout << "heyy";
     
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -47,10 +50,10 @@ int main()
 
     float position[] = {
 
-       0.5f,-0.5f,   //0
-       0.5f,0.5f,    //1
-       -0.5f,0.5f,   //2
-       -0.5f,-0.5f,  //3
+       0.5f,-0.5f, 0.0f, 0.0f,  //0
+       0.5f, 0.5f, 1.0f, 0.0f,  //1
+       -0.5f,0.5f, 1.0f, 1.0f,  //2
+       -0.5f,-0.5f, 0.0f ,1.0f  //3
 
     };
     unsigned int ind_buffer[] =
@@ -60,30 +63,30 @@ int main()
 
     };
 
-    unsigned int vao;
-    GLCall(glGenVertexArrays(1, &vao));
-    GLCall(glBindVertexArray(vao));
+    GLCall(glEnable(GL_BLEND));
+    GLCall(glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_CONSTANT_ALPHA));  //To blend alpha pixels , The first one is the source and the second one is the destination
+   
 
-    VertexArray va;
-    Vertexbuffer vb(position, 4 * 2 * sizeof(float));
+    
+    Vertexbuffer vb(position, 4 * 4 * sizeof(float)); //Bcz We have 8 values
     VertexBufferLayout layout;
     layout.Push<float>(2.0f);
+    layout.Push<float>(2.0f);
+    VertexArray va;
     va.AddBuffer(vb, layout);
 
     float red[] = { 1.0,1.0,0.0,1.0 };
 
     Indexbuffer ib(ind_buffer, 6);
-    unsigned int ibo;
-    glGenBuffers(1, &ibo);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(float), ind_buffer, GL_STATIC_DRAW);
-
-
   
-
     Shader shader("resources/shaders/Basic.shader");
     shader.Bind();
     shader.SetSetUniform("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
+
+    Texture texture("resources/textures/messi.jpg");
+    texture.Bind();
+    shader.SetSetUniform1i("u_Texture", 0);
+
     va.UnBind();
     vb.UnBind();
     ib.UnBind();
