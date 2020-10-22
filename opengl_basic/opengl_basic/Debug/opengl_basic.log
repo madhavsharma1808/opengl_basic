@@ -1,16 +1,7 @@
 ﻿  Application.cpp
 D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(73,24): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
 D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(74,24): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(95,21): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(108,24): warning C4305: '=': truncation from 'double' to 'float'
-D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(110,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  stb_image.cpp
-  IndexBuffer.cpp
-  Render.cpp
-  Shader.cpp
-  Texture.cpp
-  VertexArray.cpp
-D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\VertexArray.cpp(22,20): warning C4018: '<': signed/unsigned mismatch
-  VertexBuffer.cpp
-  Generating Code...
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(103,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(116,24): warning C4305: '=': truncation from 'double' to 'float'
+D:\opengl\opengl_basic\opengl_basic\opengl_basic\src\Application.cpp(118,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   opengl_basic.vcxproj -> D:\opengl\opengl_basic\opengl_basic\Debug\opengl_basic.exe
